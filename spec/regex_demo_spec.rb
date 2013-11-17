@@ -28,4 +28,17 @@ describe RegexDemo do
       result.should == /\w+\d/
     end
   end
+
+  context "when using the %r syntax" do
+
+    it "converts the string to a regex" do
+      result = demo.convert_with_r_syntax('something')
+      result.class.should == Regexp
+    end
+
+    it "includes metacharacters" do
+      result = demo.convert_with_r_syntax('\w+\d')
+      result.should == /\w+\d/
+    end
+  end
 end
